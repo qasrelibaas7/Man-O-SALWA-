@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MAN-O-SALWA | Gaon ka Swiggy</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
-
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<!-- Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAN-O-SALWA - Village Food Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=geometry"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
 </head>
 <body>
-
-<header>
-    <img src="images/logo.png" alt="MAN-O-SALWA Logo" class="logo">
-    <h1>MAN-O-SALWA</h1>
-    <p>UNDER 1KM FREE DELIVERY | ABOVE 1KM CHARGES APPLY</p>
-</header>
-
-<div class="offer">
-    🔥 Gaon ka Swiggy – Hotels • Chinese • Cafe • Home Delivery 🔥
-</div>
-
-<!-- MAP SECTION -->
-<div class="hotel">
-    <h2>Your Location</h2>
-    <div class="map" id="map"></div>
-    <p>Distance-based delivery charges applied automatically</p>
-</div>
-
-<!-- HOTELS SECTION -->
-<div class="hotel" id="hotel-harsh">
-    <h2>HOTEL HARSH • HOTEL VINOD • FADKE THAALI</h2>
-</div>
-
-<div class="hotel" id="red-dragon">
-    <h2>RED DRAGON • AAI CHINESE</h2>
-</div>
-
-<!-- CAFES SECTION -->
-<div class="hotel" id="cafes">
-    <h2>CAFES – Datta Bhel • Pizza Burger • Oleepa Cafe</h2>
-</div>
-
-<!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/917057942815" class="fixed-whatsapp">💬</a>
-
-<!-- FOOTER -->
-<footer>
-    Payment: COD | UPI: 7385009275@fam <br>
-    Donation QR available inside website
-</footer>
-
-<!-- JS -->
-<script src="js/firebase.js"></script>
-<script src="js/maps.js"></script>
-<script src="js/main.js"></script>
-
+    <header>
+        <img src="images/logo.png" alt="MAN-O-SALWA Logo" class="logo">
+        <h1>MAN-O-SALWA</h1>
+        <button id="admin-login-btn">Admin Login</button>
+    </header>
+    
+    <section class="banner">
+        <div class="animated-banner">
+            <p>Exciting Offers: 20% Off on First Order! Free Delivery Under 1KM!</p>
+        </div>
+    </section>
+    
+    <main>
+        <div id="location-section">
+            <h2>Enter Your Location for Delivery</h2>
+            <input type="text" id="location-input" placeholder="Enter your address">
+            <button id="calculate-distance">Calculate Distance</button>
+            <p id="distance-result"></p>
+        </div>
+        
+        <div id="menu-section">
+            <h2>Our Hotels & Cafes</h2>
+            <div id="hotels-cafes"></div>
+        </div>
+        
+        <div id="admin-panel" style="display: none;">
+            <h2>Admin Panel - Orders</h2>
+            <div id="orders-list"></div>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Support Us: Scan QR for Donation</p>
+        <img src="images/donation_qr.png" alt="Donation QR" class="qr-code">
+        <p>&copy; 2023 MAN-O-SALWA. All rights reserved.</p>
+    </footer>
+    
+    <a href="https://wa.me/917057942815" class="whatsapp-float" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+    </a>
+    
+    <script src="script.js"></script>
 </body>
 </html>
