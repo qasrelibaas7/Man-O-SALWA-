@@ -1,21 +1,16 @@
 {
-  "name": "MAN-O-SALWA",
-  "short_name": "MAN-O-SALWA",
-  "description": "Gaon ka Swiggy – Hotels, Chinese, Cafe Delivery",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff3d00",
-  "icons": [
-    {
-      "src": "images/logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "MAN-O-SALWA",
+    "short_name": "MAN-O-SALWA",
+    "description": "Village Food Delivery App",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ff7e8b",
+    "theme_color": "#ff7e8b",
+    "icons": [
+        {
+            "src": "images/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
 }
