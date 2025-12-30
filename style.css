@@ -1,0 +1,137 @@
+/* ================= BODY & HEADER ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: linear-gradient(90deg, #ff0000, #ff9800);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+}
+
+header .logo {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    object-fit: contain;
+}
+
+/* ================= OFFER BANNER ================= */
+.offer {
+    background: black;
+    color: gold;
+    padding: 6px;
+    white-space: nowrap;
+    animation: slide 12s linear infinite;
+    text-align: center;
+    font-weight: bold;
+}
+
+@keyframes slide {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* ================= HOTEL / CAFE CARDS ================= */
+.hotel {
+    background: white;
+    margin: 15px;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.hotel h2 {
+    color: #e53935;
+    margin-bottom: 10px;
+}
+
+/* ================= MENU ITEMS ================= */
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.03);
+}
+
+.item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+.whatsapp-btn {
+    display: block;
+    text-align: center;
+    background: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.fixed-whatsapp {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* ================= MAP ================= */
+.map {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    background: #ddd; /* placeholder before map loads */
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    background: #eee;
+    margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media screen and (max-width: 600px) {
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo {
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        top: 5px;
+    }
+}
