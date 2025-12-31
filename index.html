@@ -71,7 +71,7 @@
         <section class="mt-20 mb-12">
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-sm border border-[#D4AF37]/20">
                 <h3 class="text-2xl font-bold mb-2 text-center">Customer Reviews 🥰</h3>
-                <p class="text-gray-400 text-sm text-center mb-8">Triple-click a comment to delete it (Admin Secret)</p>
+                <p class="text-gray-400 text-sm text-center mb-8">Post a review and let us know!</p>
                 
                 <form id="feedbackForm" class="space-y-4 mb-10">
                     <input type="text" id="fbName" placeholder="Aapka Naam" required 
@@ -79,7 +79,7 @@
                     <textarea id="fbText" placeholder="Review likhein..." rows="3" required
                         class="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-[#D4AF37] outline-none"></textarea>
                     <button type="submit" class="w-full gold-gradient text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 transition-all">
-                        Post Review
+                        Post & Message on WhatsApp
                     </button>
                 </form>
 
@@ -288,6 +288,11 @@
                 const text = document.getElementById('fbText').value;
                 const timestamp = Date.now();
 
+                // 1. WhatsApp par message bhej raha hai
+                const fbLink = `https://wa.me/${WHATSAPP_NUMBER}?text=New Review from *${name}*: %0A%0A${text}`;
+                window.open(fbLink, '_blank');
+
+                // 2. Local website par save kar raha hai
                 const newReview = { id: timestamp, name, text };
                 const reviews = JSON.parse(localStorage.getItem('genzFoodReviews')) || [];
                 reviews.push(newReview);
@@ -309,7 +314,7 @@
                          id="rev-${rev.id}" onclick="handleTripleClick(event, ${rev.id})">
                         <p class="font-bold text-sm text-gray-800">${rev.name}</p>
                         <p class="text-gray-600 text-sm italic mt-1">"${rev.text}"</p>
-                        <span class="text-[9px] text-gray-400 uppercase mt-2 block">Verified Review</span>
+                        <span class="text-[9px] text-gray-400 uppercase mt-2 block">Customer Review</span>
                     </div>
                 `;
                 reviewsContainer.insertAdjacentHTML('afterbegin', reviewHTML);
