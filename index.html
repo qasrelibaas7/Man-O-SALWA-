@@ -54,7 +54,14 @@ l<!DOCTYPE html>
             <a href="#datta-bhel" class="category-pill px-4 py-1 rounded-full bg-[#fcf8e8] text-[#B8860B] text-xs font-bold border border-[#D4AF37]">Datta Bhel</a>
         </div>
     </header>
-
+        <div class="px-4 py-4 bg-[#fcfcfc] sticky top-[105px] z-40 border-b border-gray-100">
+        <div class="relative max-w-md mx-auto">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="searchInput" onkeyup="filterMenu()" 
+                placeholder="Search for dishes..." 
+                class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-2xl shadow-sm text-sm focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all placeholder:text-gray-400">
+        </div>
+        </div>
     <main class="container mx-auto px-4 py-8">
 
         <div id="menu-container"></div>
