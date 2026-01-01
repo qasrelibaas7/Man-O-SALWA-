@@ -9,7 +9,6 @@
     <style>
         :root { --gold: #D4AF37; --light-gold: #fcf8e8; }
         
-        /* Dark Mode Styles */
         body.dark-mode { background-color: #121212; color: #ffffff; }
         .dark-mode header, .dark-mode .bg-white, .dark-mode footer { background-color: #1e1e1e !important; color: white; border-color: #333 !important; }
         .dark-mode .food-card { background-color: #252525 !important; border-color: #333; }
@@ -21,21 +20,13 @@
         body { font-family: 'Poppins', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; transition: background 0.3s; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); }
-        .food-card { 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        .food-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
-            border-color: var(--gold);
-        }
+        .food-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(212, 175, 55, 0.1); }
+        .food-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); border-color: var(--gold); }
         .whatsapp-btn { background-color: #25D366; transition: 0.3s; }
         .whatsapp-btn:hover { background-color: #128C7E; transform: scale(1.05); }
         
-        /* Scrolling Banner */
         .marquee-container { background: #D4AF37; color: white; overflow: hidden; white-space: nowrap; padding: 6px 0; font-size: 12px; font-weight: bold; }
-        .marquee-text { display: inline-block; animation: marquee 20s linear infinite; }
+        .marquee-text { display: inline-block; animation: marquee 25s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -56,7 +47,6 @@
                 <span class="text-2xl font-bold tracking-tighter leading-none">GENZ <span class="text-[#D4AF37]">FOOD</span></span>
                 <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Premium Delivery</span>
             </div>
-            
             <button onclick="toggleDarkMode()" id="theme-btn" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 transition-all">
                 <span id="theme-icon">🌙</span>
             </button>
@@ -76,9 +66,7 @@
     <div class="px-4 py-4 sticky top-[105px] z-40 border-b border-gray-100 bg-transparent">
         <div class="relative max-w-md mx-auto">
             <svg class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            <input type="text" id="searchInput" onkeyup="filterMenu()" 
-                placeholder="Search for dishes..." 
-                class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-2xl shadow-sm text-sm focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all">
+            <input type="text" id="searchInput" onkeyup="filterMenu()" placeholder="Search for dishes..." class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-2xl shadow-sm text-sm focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all">
         </div>
     </div>
 
@@ -89,29 +77,22 @@
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-sm border border-[#D4AF37]/20">
                 <h3 class="text-2xl font-bold mb-2 text-center">Customer Reviews 🥰</h3>
                 <p class="text-gray-400 text-sm text-center mb-8">Post a review and let us know!</p>
-                
                 <form id="feedbackForm" class="space-y-4 mb-10">
-                    <input type="text" id="fbName" placeholder="Aapka Naam" required 
-                        class="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-[#D4AF37] outline-none">
-                    <textarea id="fbText" placeholder="Review likhein..." rows="3" required
-                        class="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-[#D4AF37] outline-none"></textarea>
-                    <button type="submit" class="w-full gold-gradient text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 transition-all">
-                        Post & Message on WhatsApp
-                    </button>
+                    <input type="text" id="fbName" placeholder="Aapka Naam" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-[#D4AF37] outline-none">
+                    <textarea id="fbText" placeholder="Review likhein..." rows="3" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border-none focus:ring-2 focus:ring-[#D4AF37] outline-none"></textarea>
+                    <button type="submit" class="w-full gold-gradient text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 transition-all">Post & Message on WhatsApp</button>
                 </form>
-
                 <div id="reviewsContainer" class="space-y-4"></div>
             </div>
         </section>
 
         <script>
-            // --- MENU DATA ---
             const menuData = [
-                { id: "hotel-harsh", name: "Hotel Harsh", items: [{ name: "Chicken Dry Fry", price: "90 / 160" }, { name: "Egg Bhurji", price: "50" }, { name: "Chicken Kabab", price: "100" }, { name: "Special Chicken Curry", price: "120" }, { name: "Chicken Masala", price: "130" }, { name: "Mutton Curry", price: "180" }, { name: "Egg Curry", price: "80" }, { name: "Chicken Dum Biryani", price: "140" }, { name: "Kuska (Rice)", price: "70" }, { name: "Egg Biryani", price: "100" }, { name: "Plain Rice", price: "40" }, { name: "Butter Roti", price: "20" }, { name: "Chicken Thali", price: "150" }, { name: "Egg Thali", price: "100" }] },
+                { id: "hotel-harsh", name: "Hotel Harsh", items: [{ name: "Chicken Dry Fry", price: "90/160" }, { name: "Egg Bhurji", price: "50" }, { name: "Chicken Kabab", price: "100" }, { name: "Special Chicken Curry", price: "120" }, { name: "Chicken Masala", price: "130" }, { name: "Mutton Curry", price: "180" }, { name: "Egg Curry", price: "80" }, { name: "Chicken Dum Biryani", price: "140" }, { name: "Kuska (Rice)", price: "70" }, { name: "Egg Biryani", price: "100" }, { name: "Plain Rice", price: "40" }, { name: "Butter Roti", price: "20" }, { name: "Chicken Thali", price: "150" }, { name: "Egg Thali", price: "100" }] },
                 { id: "woleeepa", name: "Woleeepa Cafe", items: [{ name: "Special Masala Chai", price: "20" }, { name: "Cold Coffee", price: "60" }, { name: "Lemon Iced Tea", price: "50" }, { name: "Chicken Sandwich", price: "80" }, { name: "Chicken Nuggets", price: "90" }, { name: "Egg Cheese Burger", price: "70" }, { name: "Chicken Popcorn", price: "100" }, { name: "Veg Cheese Sandwich", price: "60" }, { name: "Crispy French Fries", price: "50" }, { name: "Veg Paneer Burger", price: "80" }, { name: "Classic Maggi", price: "40" }, { name: "Egg Maggi", price: "60" }, { name: "Garlic Bread", price: "50" }, { name: "Bun Maska", price: "30" }] },
                 { id: "fadke", name: "Hotel FADKE THAALI", items: [{ name: "Veg Manchurian Dry", price: "80" }, { name: "Paneer 65", price: "120" }, { name: "Kadhai Paneer", price: "150" }, { name: "Mix Veg Curry", price: "100" }, { name: "Dal Tadka", price: "80" }, { name: "Dal Makhani", price: "110" }, { name: "Chole Masala", price: "90" }, { name: "Veg Hyderabadi Biryani", price: "120" }, { name: "Jeera Rice", price: "60" }, { name: "Veg Pulao", price: "90" }, { name: "Special Veg Thali", price: "150" }, { name: "Mini Thali", price: "90" }] },
                 { id: "vinod", name: "Hotel Vinod", items: [{ name: "Cold Coffee with Ice Cream", price: "80" }, { name: "Masala Fries", price: "60" }, { name: "Chicken Grilled Sandwich", price: "90" }, { name: "Veg Cheese Burger", price: "80" }, { name: "Paneer Butter Masala", price: "140" }, { name: "Dal Tadka", price: "80" }, { name: "Mix Veg Masala", price: "100" }, { name: "Chicken Curry", price: "130" }, { name: "Butter Chicken", price: "160" }, { name: "Egg Masala", price: "90" }, { name: "Chicken Dum Biryani", price: "150" }, { name: "Executive Veg Thali", price: "120" }, { name: "Chicken Thali", price: "160" }] },
-                { id: "red-dragon", name: "Red Dragon", items: [{ name: "Veg Hakka Noodles", price: "60 / 100" }, { name: "Egg Chowmein", price: "70 / 120" }, { name: "Chicken Noodles", price: "90 / 150" }, { name: "Schezwan Noodles", price: "80" }, { name: "Veg Fried Rice", price: "70" }, { name: "Chicken Fried Rice", price: "100" }, { name: "Triple Schezwan Rice", price: "150" }, { name: "Chicken Lollipop", price: "150" }] },
+                { id: "red-dragon", name: "Red Dragon", items: [{ name: "Veg Hakka Noodles", price: "60/100" }, { name: "Egg Chowmein", price: "70/120" }, { name: "Chicken Noodles", price: "90/150" }, { name: "Schezwan Noodles", price: "80" }, { name: "Veg Fried Rice", price: "70" }, { name: "Chicken Fried Rice", price: "100" }, { name: "Triple Schezwan Rice", price: "150" }, { name: "Chicken Lollipop", price: "150" }] },
                 { id: "aai-chinese", name: "AAI Chinese", items: [{ name: "Veg Steamed Momos", price: "60" }, { name: "Chicken Fried Momos", price: "100" }, { name: "Kurkure Paneer Momos", price: "120" }, { name: "Tandoori Chicken Momos", price: "140" }, { name: "Honey Chilli Potato", price: "80" }, { name: "Dragon Chicken", price: "150" }, { name: "Crispy Corn Pepper Salt", price: "100" }, { name: "Chicken Drumsticks", price: "160" }, { name: "Burnt Garlic Fried Rice", price: "90" }] },
                 { id: "datta-bhel", name: "Datta Bhel", items: [{ name: "Classic Pani Puri", price: "30" }, { name: "Chocolate Pani Puri", price: "60" }, { name: "Sukha Puri", price: "30" }, { name: "Masala Puri", price: "40" }, { name: "Dahi Puri", price: "50" }, { name: "Sev Puri", price: "40" }, { name: "Classic Bhel Puri", price: "40" }, { name: "Sukha Bhel", price: "35" }, { name: "Corn Bhel", price: "50" }] }
             ];
@@ -119,23 +100,15 @@
             const container = document.getElementById('menu-container');
             const WHATSAPP_NUMBER = "917385009275"; 
 
-            // Dark Mode Logic
             function toggleDarkMode() {
                 const body = document.getElementById('body');
                 const btn = document.getElementById('theme-icon');
                 body.classList.toggle('dark-mode');
-                if(body.classList.contains('dark-mode')) {
-                    btn.innerText = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    btn.innerText = '🌙';
-                    localStorage.setItem('theme', 'light');
-                }
+                if(body.classList.contains('dark-mode')) { btn.innerText = '☀️'; localStorage.setItem('theme', 'dark'); }
+                else { btn.innerText = '🌙'; localStorage.setItem('theme', 'light'); }
             }
-            // Check saved theme
             if(localStorage.getItem('theme') === 'dark') { toggleDarkMode(); }
 
-            // Render Menu
             menuData.forEach(hotel => {
                 let hotelSection = `<section id="${hotel.id}" class="mb-20"><div class="flex items-center mb-8"><h2 class="text-3xl font-bold border-l-4 border-[#D4AF37] pl-4">${hotel.name}</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">`;
                 hotel.items.forEach(item => {
@@ -148,7 +121,6 @@
                 container.innerHTML += hotelSection;
             });
 
-            // Search Function
             function filterMenu() {
                 const input = document.getElementById('searchInput').value.toLowerCase();
                 const cards = document.getElementsByClassName('food-card');
@@ -163,7 +135,6 @@
                 });
             }
 
-            // Feedback & Secret Delete
             const feedbackForm = document.getElementById('feedbackForm');
             const reviewsContainer = document.getElementById('reviewsContainer');
             window.addEventListener('load', loadReviews);
@@ -171,8 +142,7 @@
                 e.preventDefault();
                 const name = document.getElementById('fbName').value;
                 const text = document.getElementById('fbText').value;
-                const fbLink = `https://wa.me/${WHATSAPP_NUMBER}?text=New Review from *${name}*: %0A%0A${text}`;
-                window.open(fbLink, '_blank');
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=New Review from *${name}*: %0A%0A${text}`, '_blank');
                 const newReview = { id: Date.now(), name, text };
                 const reviews = JSON.parse(localStorage.getItem('genzFoodReviews')) || [];
                 reviews.push(newReview);
